@@ -39,7 +39,7 @@ SCRIPT=Upgrade_zabbix_proxy
 DATE_LOG()
 {
     echo `date +%y/%m/%d_%H:%M:%S` $*
-}git push
+}
 
 DATE=`date +"%Y%m%d"`
 
@@ -47,8 +47,9 @@ DATE=`date +"%Y%m%d"`
 OS=`cat /etc/os-release | grep -i NAME | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 PG_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-pgsql | tail -n 1 | cut -d '"' -f2`
-DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i _all*$OS_verze | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
-UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i _all*$OS_verze | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+MYSQL_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-mysql | tail -n 1 | cut -d '"' -f2`
+DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
 
 # vyhledat yum
 yum=`which yum | cut -d '/' -f4`
@@ -112,25 +113,19 @@ case $OS in
 	# pridat novy repoyitar
 	#OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 	case $OS_verze in
-		8)
+		8|9|10|11)
 			if [[  $PG_ZABBIX=$DB_yum  ]]
 			then
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
 				rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
 		        else
-				echo "mysql"
+				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
+                                wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$MYSQL_release
 			fi
 	        ;;
-	        9)
-			if [[  $PG_ZABBIX=$DB_yum  ]]
-			then
-				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-                        	rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
-			else
-				echo "mzsql"
-			fi
-		;;
-        esac
+			*)
+				echo "##### $DATE_LOG : OS verze linuxu nepodporuje tento script #####" >> $LOG        
+	esac
 
 	# nacist package
 	yum update
@@ -211,7 +206,6 @@ case $OS in
                 ;;
 	       *)
 		echo "##### $DATE_LOG : OS verze linuxu nepodporuje tento script #####" >> $LOG
-		exit 0
 	;;
         esac
 
