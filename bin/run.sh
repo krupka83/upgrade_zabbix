@@ -203,7 +203,7 @@ case $OS in
                         if [[  $PG_ZABBIX=$DB_apt  ]]
                         then
                                 echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-                                wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
+                                wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$DEB_release
                         else
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
 				wget https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$MYSQL_release
@@ -213,7 +213,7 @@ case $OS in
                         if [[  $PG_ZABBIX=$DB_yum  ]]
                         then
                                 echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-                                rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
+                                wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$UBU_release
                         else
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
 				wget https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$MYSQL_release
