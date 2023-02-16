@@ -32,7 +32,7 @@ RUN=$WD/run
 # vytvorit slozky pro soubory
 for i in $BACKUP $LOG $RUN
 do 
-	if [[ !  -f $i  ]]
+	if [[  -f $i  ]]
 	then
 		echo "##### $DATE_LOG : Slozka jiz existuje $i #####" 
 	else 
