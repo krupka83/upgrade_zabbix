@@ -208,7 +208,6 @@ case $OS in
                 18.04|20.04|22.04|24.04|26.04)
                                 echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
 				wget https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$UBU_release
-                        fi
                 ;;
 	       *)
 		echo "##### $DATE_LOG : OS verze linuxu nepodporuje tento script #####" >> $LOG
