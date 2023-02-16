@@ -26,11 +26,19 @@ read cesta
 # pracovni adresar
 WD=$cesta
 BACKUP=$WD/backup
+LOG=$WD/log
+RUN=$WD/run
 
 # vytvorit slozky pro soubory
-mkdir $WD/backup
-mkdir $WD/log
-mkdir $WD/run
+for i in {$BACKUP $LOG $RUN}
+do 
+	if [[ ! -f $i  ]]
+	then
+		echo "##### $DATE_LOG : Slozka jiz existuje $i #####" 
+	else 
+		mkdir $i
+	fi	
+done
 
 # nazev skriptu
 SCRIPT=Upgrade_zabbix_proxy
