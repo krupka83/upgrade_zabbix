@@ -235,7 +235,7 @@ case $OS in
         echo "##### $DATE_LOG : Spusteni zabbix-proxy #####" >> $LOG
 
         # zjistit verzi
-        `$findver` >> $LOG
+        `$findver` 
         echo "##### $DATE_LOG : Zjisteni verze zabbix-proxy #####" >> $LOG
     ;;
   RedHat)
