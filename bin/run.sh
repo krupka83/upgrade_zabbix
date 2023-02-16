@@ -54,10 +54,6 @@ DATE=`date +"%Y%m%d"`
 # promené
 OS=`cat /etc/os-release | grep -i NAME | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
-PG_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-pgsql | tail -n 1 | cut -d '"' -f2`
-MYSQL_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-mysql | tail -n 1 | cut -d '"' -f2`
-DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
-UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
 
 # vyhledat yum
 yum=`which yum | cut -d '/' -f4`
@@ -91,6 +87,8 @@ cp -rp /etc/zabbix/zabbix_proxy.conf $BACKUP/
 # podle OS se provede skript
 case $OS in 
   CentOS)
+	PG_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-pgsql | tail -n 1 | cut -d '"' -f2`
+	MYSQL_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-mysql | tail -n 1 | cut -d '"' -f2`
         # stop zabbix
 	#`$zabbixstop`
 	service zabbix-proxy stop
@@ -163,6 +161,8 @@ case $OS in
 
     ;;	
   Ubuntu|Debian)
+	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+	UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
 	# stop zabbix
         #`$zabbixstop`
         service zabbix-proxy stop
