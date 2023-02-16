@@ -129,14 +129,15 @@ case $OS in
 			if [[  $PG_ZABBIX=$DB_yum  ]]
 			then
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-				wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
+				rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
 		        else
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
-                                wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$MYSQL_release
+                                rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$MYSQL_release
 			fi
 	        ;;
 			*)
 				echo "##### $DATE_LOG : OS verze linuxu nepodporuje tento script #####" >> $LOG        
+				exit 1
 	esac
 
 	# nacist package
@@ -205,17 +206,13 @@ case $OS in
 				dpkg -i $WD/config/$DEB_release
                 ;;
                 18.04|20.04|22.04|24.04|26.04)
-                        if [[  $PG_ZABBIX=$DB_yum  ]]
-                        then
                                 echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-                                wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$UBU_release
-                        else
-				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
-				wget https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$MYSQL_release
+				wget https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$UBU_release
                         fi
                 ;;
 	       *)
 		echo "##### $DATE_LOG : OS verze linuxu nepodporuje tento script #####" >> $LOG
+		exit 1 
 	;;
         esac
 
