@@ -56,10 +56,16 @@ OS=`cat /etc/os-release | grep -i NAME | cut -d '"' -f2 | head -n 1 | cut -d ' '
 OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 
 # vyhledat yum
-yum=`which yum | cut -d '/' -f4`
+yum=`which yum`
+if [[ -f $yum  ]]
+then
+yum=1
+else
+yum=0
+fi
 
 # podminku podle OS jestli pouzivaji yum nebo apt
-if [[  $yum=yum  ]]
+if [[  $yum=1  ]]
 then
 DB_yum=`yum list installed | less | grep -i zabbix-proxy | cut -d ' ' -f1`
 else
@@ -161,8 +167,8 @@ case $OS in
 
     ;;	
   Ubuntu|Debian)
-	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
-	UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i $OS_verze_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i "$OS_verze"_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+	UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i "$OS_verze"_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
 	# stop zabbix
         #`$zabbixstop`
         service zabbix-proxy stop
