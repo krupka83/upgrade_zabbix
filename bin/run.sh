@@ -15,7 +15,7 @@
 ############################################
 
 # nacitani configurace
-. config/config.cfg
+. $WD/config/config.cfg
 
 # promene ktere pridava user
 echo -n "Jakou verzi chcete nainstalovat: " 
@@ -129,7 +129,7 @@ case $OS in
 			if [[  $PG_ZABBIX=$DB_yum  ]]
 			then
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-				rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
+				wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
 		        else
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
                                 wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$MYSQL_release
