@@ -59,13 +59,13 @@ OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 
 yum=`which yum`
 if [[ -f $yum  ]]
 then
-yum=1
+yum=ano
 else
-yum=0
+yum=ne
 fi
 
 # podminku podle OS jestli pouzivaji yum nebo apt
-if [[  $yum==1  ]]
+if [[ ! $yum=ano  ]]
 then
 DB_yum=`yum list installed | less | grep -i zabbix-proxy | cut -d ' ' -f1`
 else
