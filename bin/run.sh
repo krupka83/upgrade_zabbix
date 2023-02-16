@@ -200,14 +200,8 @@ case $OS in
         #OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
         case $OS_verze in
                 9|10|11|12|13)
-                        if [[  $PG_ZABBIX=$DB_apt  ]]
-                        then
-                                echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-                                wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$DEB_release
-                        else
-				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
-				wget https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$MYSQL_release
-                        fi
+                                echo "##### $DATE_LOG : Stazeny repozitar pro $OS $OS_verze #####" >> $LOG
+				wget https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$DEB_release
                 ;;
                 18.04|20.04|22.04|24.04|26.04)
                         if [[  $PG_ZABBIX=$DB_yum  ]]
@@ -216,7 +210,7 @@ case $OS in
                                 wget https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$UBU_release
                         else
 				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
-				wget https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$MYSQL_release
+				wget https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$MYSQL_release
                         fi
                 ;;
 	       *)
