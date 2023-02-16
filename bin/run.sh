@@ -65,7 +65,7 @@ yum=0
 fi
 
 # podminku podle OS jestli pouzivaji yum nebo apt
-if [[  $yum=1  ]]
+if [[  $yum==1  ]]
 then
 DB_yum=`yum list installed | less | grep -i zabbix-proxy | cut -d ' ' -f1`
 else
