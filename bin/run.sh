@@ -201,7 +201,7 @@ case $OS in
         case $OS_verze in
                 9|10|11|12|13)
                                 echo "##### $DATE_LOG : Stazeny repozitar pro $OS $OS_verze #####" >> $LOG
-				wget https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$DEB_release
+				wget -P $WD/config/ https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$DEB_release
                 ;;
                 18.04|20.04|22.04|24.04|26.04)
                         if [[  $PG_ZABBIX=$DB_yum  ]]
