@@ -14,9 +14,6 @@
 #
 ############################################
 
-# nacitani configurace
-. $WD/config/config.cfg
-
 # promene ktere pridava user
 echo -n "Jakou verzi chcete nainstalovat: " 
 read verze  
@@ -28,6 +25,9 @@ WD=$cesta
 BACKUP=$WD/backup
 LOG=$WD/log
 RUN=$WD/run
+
+# nacitani configurace
+. $WD/config/config.cfg
 
 # vytvorit slozky pro soubory
 for i in $BACKUP $LOG $RUN
