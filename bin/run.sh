@@ -111,7 +111,7 @@ case $OS in
 			;;
 		$MYSQL_ZABBIX) 
 			echo "##### $DATE_LOG : DB je MYSQL #####" >> $LOG
-		        mysqldump -u zabbix -pzabbix --all-databases > $BACKUP/db.sql
+		        mysqldump -u$zabbixuser -p$zabbixpassword -d $zabbixdbname > $BACKUP/db.sql
 			echo "##### $DATE_LOG : Databaze jsou zalohovany #####" >> $LOG
 			;;
 	esac
@@ -185,7 +185,7 @@ case $OS in
                         ;;
                 $MYSQL_ZABBIX)
                         echo "##### $DATE_LOG : DB je MYSQL #####" >> $LOG
-                        mysqldump -u zabbix -pzabbix --all-databases > $BACKUP/db.sql
+		        mysqldump -u$zabbixuser -p$zabbixpassword -d $zabbixdbname > $BACKUP/db.sql
                         echo "##### $DATE_LOG : Databaze jsou zalohovany #####" >> $LOG
                         ;;
         esac
@@ -215,7 +215,8 @@ case $OS in
                                 echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
                                 rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
                         else
-                                echo "mzsql"
+				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
+				wget https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$MYSQL_release
                         fi
                 ;;
 	       *)
@@ -228,6 +229,8 @@ case $OS in
         echo "##### $DATE_LOG : Pridani novych balicku #####" >> $LOG
 
         # Install Zabbix proxy
+        echo $zabbixproxyinstall_apt
+	 
         `$zabbixproxyinstall_apt`
         echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
 
