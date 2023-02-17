@@ -150,7 +150,12 @@ case $OS in
 	fi
 
 	# Install Zabbix proxy
-        `$zabbixproxyinstall_yum`
+	if [[ "$DB_yum" == "$PG_ZABBIX"  ]]
+	then
+        `$zabbixproxyinstall_yum_pg`
+	else
+	`zabbixproxyinstall_yum_mysql`
+	fi
 	echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
 	
 	# Zabbix-proxy start
@@ -210,7 +215,12 @@ case $OS in
         echo "##### $DATE_LOG : Pridani novych balicku #####" >> $LOG
 
         # Install Zabbix proxy
-        `$zabbixproxyinstall_apt`
+	if [[ "$DB_yum" == "$PG_ZABBIX"  ]]
+        then
+        `$zabbixproxyinstall_apt_pg`
+        else
+        `zabbixproxyinstall_apt_mysql`
+        fi
         echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
 
         # Zabbix-proxy start
