@@ -203,7 +203,8 @@ case $OS in
                 ;;
                 18.04|20.04|22.04|24.04|26.04)
                                 echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-				wget https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$UBU_release
+				wget -P $WD/config/  https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$UBU_release
+				dpkg -i $WD/config/$UBU_release
                 ;;
 	       *)
 		echo "##### $DATE_LOG : OS verze linuxu nepodporuje tento script #####" >> $LOG
@@ -216,9 +217,12 @@ case $OS in
         echo "##### $DATE_LOG : Pridani novych balicku #####" >> $LOG
 
         # Install Zabbix proxy
-        echo $zabbixproxyinstall_apt
-	 
-        `$zabbixproxyinstall_apt`
+	if [[  "$DB_apt" == "$PG_ZABBIX"  ]]
+	then
+        	`$zabbixproxyinstall_yum`
+	else
+        	`$zabbixproxyinstall_apt`
+	fi	
         echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
 
         # Zabbix-proxy start
