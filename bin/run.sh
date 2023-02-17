@@ -181,7 +181,7 @@ case $OS in
         case $DB_apt in
                 $PG_ZABBIX)
                         echo "##### $DATE_LOG : DB je POSTGRESQL #####" >> $LOG
-                        sudo -u postgres pg_dumpall > $BACKUP/db.sql
+			pg_dump --dbname=postgresql://$zabbixuser:$zabbixpassword@$zabbixdbhost:5432/$zabbixdbname > $BACKUP/db.sql
                         echo "##### $DATE_LOG : Databaze jsou zalohovany #####" >> $LOG
                         ;;
                 $MYSQL_ZABBIX)
