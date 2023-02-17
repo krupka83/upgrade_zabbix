@@ -32,7 +32,7 @@ RUN=$WD/run
 # vytvorit slozky pro soubory
 for i in $BACKUP $LOG $RUN
 do 
-	if [[  -f $i  ]]
+	if [[  ! -f $i  ]]
 	then
 		echo "##### $DATE_LOG : Slozka jiz existuje $i #####" 
 	else 
@@ -52,7 +52,7 @@ DATE_LOG()
 DATE=`date +"%Y%m%d"`
 
 # promené
-OS=`cat /etc/os-release | grep -i NAME | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
+OS=`cat /etc/os-release | grep -i NAME | cut  ne=ano-d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 
 # vyhledat yum
@@ -65,7 +65,7 @@ yum=ne
 fi
 
 # podminku podle OS jestli pouzivaji yum nebo apt
-if [[  $yum=ano  ]]
+if [[  "$yum" == "ano"  ]]
 then
 DB_yum=`yum list installed | less | grep -i zabbix-proxy | cut -d ' ' -f1`
 else
