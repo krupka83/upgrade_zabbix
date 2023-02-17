@@ -63,7 +63,7 @@ fi
 # podminku podle OS jestli pouzivaji yum nebo apt
 if [[  "$yum" == "ano"  ]]
 then
-DB_yum=`yum list installed | less | grep -i zabbix-proxy | cut -d ' ' -f1`
+DB_yum=`yum list installed | less | grep -i zabbix-proxy | cut -d ' ' -f1 | cut -d '.' -f1 `
 else
 DB_apt=`apt list --installed | grep -i zabbix-proxy | cut -d ' ' -f1 | cut -d '/' -f1`
 fi
@@ -187,14 +187,7 @@ case $OS in
                         ;;
         esac
 
-        # Smazat Repozitar
-        #echo "##### $DATE_LOG : Smazan istareho repozitare #####" >> $LOG
-        #rm -r /etc/yum.repos.d/zabbix.repo
-        #yum clean all
-        #echo "##### $DATE_LOG : Smayani starych balicku #####" >> $LOG
-
-        # pridat novy repoyitar
-        #OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
+	# rozdeleni podle distribuce Debian/Ubuntu
         case $OS_verze in
                 9|10|11|12|13)
                                 echo "##### $DATE_LOG : Stazeny repozitar pro $OS $OS_verze #####" >> $LOG
