@@ -51,10 +51,6 @@ DATE_LOG()
 
 DATE=`date +"%Y%m%d"`
 
-# promené
-OS=`cat /etc/os-release | grep -i NAME | cut  ne=ano-d '"' -f2 | head -n 1 | cut -d ' ' -f1`
-OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
-
 # vyhledat yum
 yum=`which yum`
 if [[ -f $yum  ]]
