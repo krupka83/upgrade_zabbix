@@ -215,7 +215,7 @@ case $OS in
         echo "##### $DATE_LOG : Pridani novych balicku #####" >> $LOG
 
         # Install Zabbix proxy
-	if [[ "$DB_yum" == "$PG_ZABBIX"  ]]
+	if [[ "$DB_apt" == "$PG_ZABBIX"  ]]
         then
         `$zabbixproxyinstall_apt_pg`
         else
