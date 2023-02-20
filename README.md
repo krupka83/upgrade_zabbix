@@ -23,10 +23,10 @@ apt install curl git (CentOS, Redhat, ...)
 Testováno
 1. UPGRADE-ZABBIX-PROXY-DEBIAN-MYSQL - připraveno
 2. UPGRADE-ZABBIX-PROXY-DEBIAN-PG - připraveno
-3. 
-4.
-5.
+3. UPGRADE-ZABBIX-PROXY-UBUNTU-MYSQL - 
+5.UPGRADE-ZABBIX-PROXY-UBUNTU-PG -
 6.
+7.
 7
 8.
 
