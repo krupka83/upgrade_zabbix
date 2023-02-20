@@ -20,5 +20,13 @@ apt install curl git (CentOS, Redhat, ...)
 ![image](https://user-images.githubusercontent.com/46448228/219662287-6bf3becc-2af6-4e2a-9614-b099ca800f82.png)
 
 
-
+Testováno
+1. UPGRADE-ZABBIX-PROXY-DEBIAN-MYSQL - připraveno
+2. UPGRADE-ZABBIX-PROXY-DEBIAN-PG - připraveno
+3. 
+4.
+5.
+6.
+7
+8.
 
