@@ -90,13 +90,13 @@ cp -rp /etc/zabbix/zabbix_proxy.conf $BACKUP/
 case $OS in 
   CentOS|redhat)
 	# stahnout repozitar
-	release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
+	release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
         rpm -Uvh $release
 
 	# stop zabbix
 	#`$zabbixstop`
 	service zabbix-proxy stop
-	sleep 10s
+	#sleep 10s
 	service zabbix-proxy status
 	echo "##### $DATE_LOG : Zastaveni sluzby zabbix-proxy #####" >> $LOG
 
