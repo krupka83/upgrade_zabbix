@@ -140,8 +140,16 @@ case $OS in
 	if [[ "$DB_yum" == "$PG_ZABBIX"  ]]
 	then
         echo $zabbixproxyinstall_yum_pg
-        `$zabbixproxyinstall_yum_pg`
+	yum upgrade -y zabbix-proxy-pgsql zabbix-sql-scripts	
+	
+		if [[ $selinux == 'disabled'   ]]
+			echo "##### $DATE_LOG : SELINUX vypnuty #####" >> $LOG
+		else
+			echo "##### $DATE_LOG : SELINUX je zapnuty msi se nainstalovat politika #####" >> $LOG
+			yum install -y zabbix-selinux-policy
+		fi
 	else
+	
 	echo $zabbixproxyinstall_yum_mysql
 	`zabbixproxyinstall_yum_mysql`
 	fi
