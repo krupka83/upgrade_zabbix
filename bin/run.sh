@@ -142,8 +142,10 @@ case $OS in
 	# Install Zabbix proxy
 	if [[ "$DB_yum" == "$PG_ZABBIX"  ]]
 	then
+        echo $zabbixproxyinstall_yum_pg
         `$zabbixproxyinstall_yum_pg`
 	else
+	echo $zabbixproxyinstall_yum_mysql
 	`zabbixproxyinstall_yum_mysql`
 	fi
 	echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
@@ -154,7 +156,7 @@ case $OS in
 	echo "##### $DATE_LOG : Spusteni zabbix-proxy #####" >> $LOG
 
 	# zjistit verzi
-	`$findver` >> $LOG
+	`$findver` 
 	echo "##### $DATE_LOG : Zjisteni verze zabbix-proxy #####" >> $LOG
 
     ;;	
