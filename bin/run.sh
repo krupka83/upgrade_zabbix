@@ -90,8 +90,8 @@ cp -rp /etc/zabbix/zabbix_proxy.conf $BACKUP/
 case $OS in 
   CentOS|redhat)
 	# stahnout repozitar
-	release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
-        rpm -Uvh $release
+	#release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
+        #rpm -Uvh $release
 
 	# stop zabbix
 	#`$zabbixstop`
@@ -117,8 +117,8 @@ case $OS in
 	case $OS_verze in
 		7|8|9|10|11)
         	        # stahnout repozitar
-		        release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
-        		rpm -Uvh $release
+		        release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
+        		rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$release
 
 			;;
 			*)
