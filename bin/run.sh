@@ -89,7 +89,7 @@ cp -rp /etc/zabbix/zabbix_proxy.conf $BACKUP/
 
 # podle OS se provede skript
 case $OS in 
-  CentOS|redhat)
+  CentOS|Red)
 
 	# zabbix sluzby
 	service zabbix-proxy stop
