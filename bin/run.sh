@@ -88,10 +88,12 @@ cp -rp /etc/zabbix/zabbix_proxy.conf $BACKUP/
 
 # podle OS se provede skript
 case $OS in 
-  CentOS)
-	PG_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-pgsql | tail -n 1 | cut -d '"' -f2`
-	MYSQL_release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-proxy-mysql | tail -n 1 | cut -d '"' -f2`
-        # stop zabbix
+  CentOS|redhat)
+	# stahnout repozitar
+	release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
+        rpm -Uvh $release
+
+	# stop zabbix
 	#`$zabbixstop`
 	service zabbix-proxy stop
 	sleep 10s
@@ -112,25 +114,13 @@ case $OS in
 			;;
 	esac
 
-	# Smazat Repozitar
-	#echo "##### $DATE_LOG : Smazan istareho repozitare #####" >> $LOG
-	#rm -r /etc/yum.repos.d/zabbix.repo
-	#yum clean all
-	#echo "##### $DATE_LOG : Smayani starych balicku #####" >> $LOG
-	
-	# pridat novy repoyitar
-	#OS_verze=`cat /etc/os-release | grep -i VERSION_ID | cut -d '"' -f2 | head -n 1 | cut -d ' ' -f1`
 	case $OS_verze in
-		8|9|10|11)
-			if [[  $PG_ZABBIX=$DB_yum  ]]
-			then
-				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
-				rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$PG_release
-		        else
-				echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####"
-                                rpm -Uvh https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/$MYSQL_release
-			fi
-	        ;;
+		7|8|9|10|11)
+        	        # stahnout repozitar
+		        release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
+        		rpm -Uvh $release
+
+			;;
 			*)
 				echo "##### $DATE_LOG : OS verze linuxu nepodporuje tento script #####" >> $LOG        
 				exit 1
