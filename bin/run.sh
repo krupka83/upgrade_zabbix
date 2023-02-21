@@ -161,6 +161,10 @@ case $OS in
 	service zabbix-proxy start
 	echo "##### $DATE_LOG : Spusteni zabbix-proxy #####" >> $LOG
 
+        # status sluzby
+        /bin/systemctl status zabbix-proxy.service
+
+
     ;;	
   Ubuntu|Debian)
 	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i "$OS_verze"_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
