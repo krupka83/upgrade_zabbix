@@ -158,13 +158,8 @@ case $OS in
 	echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
 	
 	# Zabbix-proxy start
-	#`$zabbixstart`
 	service zabbix-proxy start
 	echo "##### $DATE_LOG : Spusteni zabbix-proxy #####" >> $LOG
-
-	# zjistit verzi
-	`$findver` 
-	echo "##### $DATE_LOG : Zjisteni verze zabbix-proxy #####" >> $LOG
 
     ;;	
   Ubuntu|Debian)
