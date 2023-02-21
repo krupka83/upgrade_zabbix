@@ -136,7 +136,7 @@ case $OS in
 		echo "##### $DATE_LOG : Zapsani do epel.repo #####" >> $LOG
 	fi
 
-	selinux = `cat /etc/selinux/config | grep disabled | tail -n 1|  cut -d '=' -f2`
+	selinux=`cat /etc/selinux/config | grep disabled | tail -n 1|  cut -d '=' -f2`
 	if [[  $selinux == "disabled"  ]]
 	then
                         echo "##### $DATE_LOG : SELINUX vypnuty #####" >> $LOG
@@ -153,7 +153,7 @@ case $OS in
 		yum upgrade -y zabbix-proxy-pgsql zabbix-sql-scripts	
 	else
 		echo $zabbixproxyinstall_yum_mysql
-		`zabbixproxyinstall_yum_mysql`
+		yum upgrade -y zabbix-proxy-mysql zabbix-sql-scripts
 	fi
 	echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
 	
