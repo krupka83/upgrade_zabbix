@@ -25,12 +25,13 @@ WD=$cesta
 BACKUP=$WD/backup
 LOG=$WD/log
 RUN=$WD/run
+TMP=$WD/tmp
 
 # nacitani configurace
 . $WD/config/config.cfg
 
 # vytvorit slozky pro soubory
-for i in $BACKUP $LOG $RUN
+for i in $BACKUP $LOG $RUN $TMP
 do 
 	if [[  -d $i  ]]
 	then
@@ -89,12 +90,8 @@ cp -rp /etc/zabbix/zabbix_proxy.conf $BACKUP/
 # podle OS se provede skript
 case $OS in 
   CentOS|redhat)
-	# stahnout repozitar
-	#release=`curl -s https://repo.zabbix.com/zabbix/$verze/rhel/$OS_verze/x86_64/ | grep -i zabbix-release | tail -n 1 | cut -d '"' -f2`
-        #rpm -Uvh $release
 
-	# stop zabbix
-	#`$zabbixstop`
+	# zabbix sluzby
 	service zabbix-proxy stop
 	#sleep 10s
 	service zabbix-proxy status
@@ -127,7 +124,7 @@ case $OS in
 	esac
 
 	# nacist package
-	yum update
+	#yum update
 	echo "##### $DATE_LOG : Pridani novych balicku #####" >> $LOG
 
 	# zapsat do epel
