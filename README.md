@@ -30,4 +30,7 @@ Testováno
 7. UPGRADE-ZABBIX-PROXY-REDHAT-MYSQL - připraveno
 8. UPGRADE-ZABBIX-PROXY-REDHAT-PG - připraveno
 
+DB požadavky:
+![image](https://user-images.githubusercontent.com/46448228/220383918-bbef185d-bcaa-49a8-8429-51d6097d5cf8.png)
+
 
