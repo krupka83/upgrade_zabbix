@@ -21,6 +21,12 @@ yum install curl git (CentOS, Redhat, ...)
 
 ![image](https://user-images.githubusercontent.com/46448228/219662287-6bf3becc-2af6-4e2a-9614-b099ca800f82.png)
 
+CO může nastat:
+Ptaní na conf souboru jestli může přepsat? 
+Potvrdit Y
+![image](https://user-images.githubusercontent.com/46448228/220589867-180bb4c7-7a53-4367-8c40-fd7953f30b8f.png)
+
+
 
 Testováno
 1. UPGRADE-ZABBIX-PROXY-DEBIAN-MYSQL - ověřeno
