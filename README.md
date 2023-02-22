@@ -43,5 +43,6 @@ https://www.postgresql.r2schools.com/how-to-install-postgresql-and-pgadmin-on-rh
 MYSQL pro RHEL8/RHEL9
 https://computingforgeeks.com/how-to-install-mariadb-server-on-centos-rhel-linux/
 
-
+POSTGRESQL pro DEBIAN/UBUNTU
+https://techviewleo.com/how-to-install-postgresql-15-on-debian/
 
