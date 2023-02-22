@@ -172,7 +172,7 @@ case $OS in
 	# stop zabbix
         #`$zabbixstop`
         service zabbix-proxy stop
-        sleep 10s
+        #sleep 10s
         service zabbix-proxy status
         echo "##### $DATE_LOG : Zastaveni sluzby zabbix-proxy #####" >> $LOG
 
