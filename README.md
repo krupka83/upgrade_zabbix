@@ -38,8 +38,8 @@ Testováno
 4. UPGRADE-ZABBIX-PROXY-UBUNTU-PG - připraveno
 5. UPGRADE-ZABBIX-PROXY-CENTOS-MYSQL - ověřeno
 6. UPGRADE-ZABBIX-PROXY-CENTOS-PG - ověřeno
-7. UPGRADE-ZABBIX-PROXY-REDHAT-MYSQL - připraveno
-8. UPGRADE-ZABBIX-PROXY-REDHAT-PG - připraveno
+7. UPGRADE-ZABBIX-PROXY-REDHAT-MYSQL - ověřeno
+8. UPGRADE-ZABBIX-PROXY-REDHAT-PG - ověřeno
 
 DB požadavky:
 ![image](https://user-images.githubusercontent.com/46448228/220383918-bbef185d-bcaa-49a8-8429-51d6097d5cf8.png)
