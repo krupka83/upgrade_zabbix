@@ -167,7 +167,7 @@ case $OS in
 
     ;;	
   Ubuntu|Debian)
-	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i "$OS_verze"04_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i "$OS_verze"_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
 	UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i "$OS_verze".04_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
 	# stop zabbix
         #`$zabbixstop`
