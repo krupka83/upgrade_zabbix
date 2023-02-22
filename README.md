@@ -33,8 +33,7 @@ Potvrdit enter (default je N)
 Po upgradu:
 1. ve složce config bude nový soubor zabbix-release*
 2. ve složce backup budou dva soubory db.sql (záloha zabbix DB) a zabbix_proxy.conf (záloha konfiguračního souboru)
-3. ve složce log je všechno co sckript dělal:
-např.
+3. ve složce log je všechno co skript dělal:
 
 ![image](https://user-images.githubusercontent.com/46448228/220632391-aeef2011-94a2-47c8-a789-4ebe5f35b251.png)
 
