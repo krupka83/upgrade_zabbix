@@ -36,7 +36,7 @@ Po upgradu:
 3. ve složce log je všechno co sckript dělal:
 např.
 
-![image](https://user-images.githubusercontent.com/46448228/220632068-f64cdd2e-971f-4d66-a16b-5db634dc69ad.png)
+![image](https://user-images.githubusercontent.com/46448228/220632391-aeef2011-94a2-47c8-a789-4ebe5f35b251.png)
 
 
 
