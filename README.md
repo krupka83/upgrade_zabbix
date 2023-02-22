@@ -30,6 +30,10 @@ Instalace se zeptá na conf soubor jestli může přepsat nebo nechat původní?
 Potvrdit enter (default je N)
 ![image](https://user-images.githubusercontent.com/46448228/220591484-48a46b12-653b-4f90-ac3c-bb80753ed40e.png)
 
+Po upgradu:
+1. ve složce config bude nový soubor zabbix-release*
+2. ve složce backup budou dva soubory db.sql (záloha zabbix DB) a zabbix_proxy.conf (záloha konfiguračního souboru)
+
 
 Testováno
 1. UPGRADE-ZABBIX-PROXY-DEBIAN-MYSQL - ověřeno
