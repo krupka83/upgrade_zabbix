@@ -35,6 +35,7 @@ Po upgradu:
 2. ve složce backup budou dva soubory db.sql (záloha zabbix DB) a zabbix_proxy.conf (záloha konfiguračního souboru)
 3. ve složce log je všechno co sckript dělal:
 např.
+
 ![image](https://user-images.githubusercontent.com/46448228/220632068-f64cdd2e-971f-4d66-a16b-5db634dc69ad.png)
 
 
