@@ -10,6 +10,7 @@ Postup instalace:
 1. nainstalovat:
 
 apt install curl git (Debian, Ubuntu, ...)
+
 yum install curl git (CentOS, Redhat, ...)
 
 2. cd /tmp
