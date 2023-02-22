@@ -8,8 +8,8 @@ Problém s verzí zabbix-proxy
 Postup instalace:
 
 1. nainstalovat:
-apt install curl git (Debian, Ubuntu, ...)
 
+apt install curl git (Debian, Ubuntu, ...)
 yum install curl git (CentOS, Redhat, ...)
 
 2. cd /tmp
@@ -27,7 +27,7 @@ Testováno
 3. UPGRADE-ZABBIX-PROXY-UBUNTU-MYSQL - připraveno
 4. UPGRADE-ZABBIX-PROXY-UBUNTU-PG - připraveno
 5. UPGRADE-ZABBIX-PROXY-CENTOS-MYSQL - připraveno
-6. UPGRADE-ZABBIX-PROXY-CENTOS-PG - připraveno
+6. UPGRADE-ZABBIX-PROXY-CENTOS-PG - ověřeno
 7. UPGRADE-ZABBIX-PROXY-REDHAT-MYSQL - připraveno
 8. UPGRADE-ZABBIX-PROXY-REDHAT-PG - připraveno
 
