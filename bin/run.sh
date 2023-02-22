@@ -212,22 +212,25 @@ case $OS in
         apt update
         echo "##### $DATE_LOG : Pridani novych balicku #####" >> $LOG
 
-        # Install Zabbix proxy
-	if [[ "$DB_apt" == zabbix-proxy-pgsql  ]]
+	# Install Zabbix proxy
+        if [[ "$DB_apt" == "$PG_ZABBIX"  ]]
         then
-        `$zabbixproxyinstall_apt_pg`
+                echo $zabbixproxyinstall_apt_pg
+                apt upgrade -y zabbix-proxy-pgsql zabbix-sql-scripts
         else
-        `zabbixproxyinstall_apt_mysql`
+                echo $zabbixproxyinstall_apt_mysql
+                apt upgrade -y zabbix-proxy-mysql zabbix-sql-scripts
         fi
         echo "##### $DATE_LOG : Nainstalovany novy zabbix-proxy #####" >> $LOG
 
         # Zabbix-proxy start
         #`$zabbixstart`
         service zabbix-proxy start
+        service zabbix-proxy status
         echo "##### $DATE_LOG : Spusteni zabbix-proxy #####" >> $LOG
 
         # zjistit verzi
-        `$findver` 
+        #`$findver` 
         echo "##### $DATE_LOG : Zjisteni verze zabbix-proxy #####" >> $LOG
     ;;
   RedHat)
