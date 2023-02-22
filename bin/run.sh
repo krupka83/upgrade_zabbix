@@ -167,8 +167,8 @@ case $OS in
 
     ;;	
   Ubuntu|Debian)
-	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i "$OS_verze"_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
-	UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i "$OS_verze"_all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+	DEB_release=`curl -s https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/ | grep -i "$OS_verze"04__all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
+	UBU_release=`curl -s https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/ | grep -i "$OS_verze"04__all | tail -n 1 | cut -d '>' -f2 | cut -d '<' -f1`
 	# stop zabbix
         #`$zabbixstop`
         service zabbix-proxy stop
@@ -197,7 +197,7 @@ case $OS in
 				wget -P $WD/config/ https://repo.zabbix.com/zabbix/$verze/debian/pool/main/z/zabbix-release/$DEB_release
 				dpkg -i $WD/config/$DEB_release
                 ;;
-                18.04|20.04|22.04|24.04|26.04)
+                18|20|22|24|26)
                                 echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
 				wget -P $WD/config/  https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$UBU_release
 				dpkg -i $WD/config/$UBU_release
