@@ -46,3 +46,5 @@ https://computingforgeeks.com/how-to-install-mariadb-server-on-centos-rhel-linux
 POSTGRESQL pro DEBIAN/UBUNTU
 https://techviewleo.com/how-to-install-postgresql-15-on-debian/
 
+MYSQL pro DEBIAN/UBUNTU
+https://computingforgeeks.com/how-to-install-mariadb-on-debian/
