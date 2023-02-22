@@ -37,8 +37,11 @@ DB požadavky:
 
 Návody na instalaci:
 
-POSTGRESQL 15 pro RHEL8/RHEL9
+POSTGRESQL pro RHEL8/RHEL9
 https://www.postgresql.r2schools.com/how-to-install-postgresql-and-pgadmin-on-rhel-9/
+
+MYSQL pro RHEL8/RHEL9
+https://computingforgeeks.com/how-to-install-mariadb-server-on-centos-rhel-linux/
 
 
 
