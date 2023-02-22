@@ -33,7 +33,8 @@ Testováno
 DB požadavky:
 ![image](https://user-images.githubusercontent.com/46448228/220383918-bbef185d-bcaa-49a8-8429-51d6097d5cf8.png)
 
-Návody na instalaci 
+Návody na instalaci:
+
 POSTGRESQL 15 pro RHEL8/RHEL9
 https://www.postgresql.r2schools.com/how-to-install-postgresql-and-pgadmin-on-rhel-9/
 
