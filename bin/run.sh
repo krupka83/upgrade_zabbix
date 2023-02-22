@@ -198,7 +198,7 @@ case $OS in
 				dpkg -i $WD/config/$DEB_release
                 ;;
                 18|20|22|24|26)
-                                echo "##### $DATE_LOG : Stazeny repoyitar pro CentOS $OS_verze #####" >> $LOG
+                                echo "##### $DATE_LOG : Stazeny repozitar pro UBUNTU $OS_verze.04 #####" >> $LOG
 				wget -P $WD/config/  https://repo.zabbix.com/zabbix/$verze/ubuntu/pool/main/z/zabbix-release/$UBU_release
 				dpkg -i $WD/config/$UBU_release
                 ;;
