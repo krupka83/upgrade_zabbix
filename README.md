@@ -9,7 +9,8 @@ Postup instalace:
 
 1. nainstalovat:
 apt install curl git (Debian, Ubuntu, ...)
-apt install curl git (CentOS, Redhat, ...)
+
+yum install curl git (CentOS, Redhat, ...)
 
 2. cd /tmp
 3. git clone https://github.com/krupka83/upgrade_zabbix.git
