@@ -21,10 +21,14 @@ yum install curl git (CentOS, Redhat, ...)
 
 ![image](https://user-images.githubusercontent.com/46448228/219662287-6bf3becc-2af6-4e2a-9614-b099ca800f82.png)
 
-CO může nastat:
+Co může nastat:
+přivypínaní služby je zapotřebí stsknout q, aby prošel dal script
+![image](https://user-images.githubusercontent.com/46448228/220590865-fb5214ed-d511-4a58-933e-2913d98d9cbc.png)
+
+
 Ptaní na conf souboru jestli může přepsat? 
-Potvrdit Y
-![image](https://user-images.githubusercontent.com/46448228/220589867-180bb4c7-7a53-4367-8c40-fd7953f30b8f.png)
+Potvrdit N
+
 
 
 
