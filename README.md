@@ -16,7 +16,7 @@ yum install curl git (CentOS, Redhat, ...)
 2. cd /tmp
 3. git clone https://github.com/krupka83/upgrade_zabbix.git
 4. bash upgrade_zabbix/bin/run.sh
-5. 6.3 #(zjistit jakou verzi potřebujete, skript umí nainstalovat jakou koliv verzi, ale musí zabbix podporovat - https://www.zabbix.com/download)
+5. 6.4 #(zjistit jakou verzi potřebujete, skript umí nainstalovat jakou koliv verzi, ale musí zabbix podporovat - https://www.zabbix.com/download)
 6. /tmp/upgrade_zabbix
 
 ![image](https://user-images.githubusercontent.com/46448228/219662287-6bf3becc-2af6-4e2a-9614-b099ca800f82.png)
